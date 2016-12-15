@@ -466,11 +466,6 @@ class ReactPhoneInput extends React.Component {
       "arrow": true,
       "up": this.state.showDropDown
     });
-    let inputClasses = classNames({
-      "form-control": true,
-      "invalid-number": !this.props.isValid(this.state.formattedNumber.replace(/\D/g, '')),
-      this.props.className
-    });
 
     let flagViewClasses = classNames({
       "flag-dropdown": true,
@@ -490,7 +485,7 @@ class ReactPhoneInput extends React.Component {
           value={this.state.formattedNumber}
           ref="numberInput"
           type="tel"
-          className={inputClasses}
+          className={ this.props.className }
         />
         <div ref="flagDropDownButton" className={flagViewClasses} onKeyDown={this.handleKeydown} >
           <div
@@ -553,7 +548,8 @@ ReactPhoneInput.defaultProps = {
   defaultCountry: allCountries[0].iso2,
   isValid: isNumberValid,
   flagsImagePath: './flags.png',
-  onEnterKeyPress: function () {}
+  onEnterKeyPress: function () {},
+  className: ''
 };
 
 ReactPhoneInput.propTypes = {
