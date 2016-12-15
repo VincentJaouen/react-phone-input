@@ -468,7 +468,8 @@ class ReactPhoneInput extends React.Component {
     });
     let inputClasses = classNames({
       "form-control": true,
-      "invalid-number": !this.props.isValid(this.state.formattedNumber.replace(/\D/g, ''))
+      "invalid-number": !this.props.isValid(this.state.formattedNumber.replace(/\D/g, '')),
+      this.props.className
     });
 
     let flagViewClasses = classNames({
@@ -564,7 +565,8 @@ ReactPhoneInput.propTypes = {
     onChange: React.PropTypes.func,
     onFocus: React.PropTypes.func,
     onClick: React.PropTypes.func,
-    onKeyDown: React.PropTypes.func
+    onKeyDown: React.PropTypes.func,
+    className: React.PropTypes.string
 };
 
 export default ReactPhoneInput;
